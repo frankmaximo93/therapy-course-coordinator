@@ -9,7 +9,10 @@ import { AppLayout } from "./components/layout/AppLayout";
 // Pages
 import Dashboard from "./pages/Dashboard";
 import Scheduling from "./pages/Scheduling";
+import SchedulingConfig from "./pages/SchedulingConfig";
 import Customers from "./pages/Customers";
+import CrmDashboard from "./pages/CrmDashboard";
+import RemindersConfig from "./pages/RemindersConfig";
 import Finances from "./pages/Finances";
 import Courses from "./pages/Courses";
 import NotFound from "./pages/NotFound";
@@ -40,10 +43,34 @@ const App = () => (
             } 
           />
           <Route 
+            path="/scheduling/config" 
+            element={
+              <AppLayout>
+                <SchedulingConfig />
+              </AppLayout>
+            } 
+          />
+          <Route 
             path="/customers" 
             element={
               <AppLayout>
                 <Customers />
+              </AppLayout>
+            } 
+          />
+          <Route 
+            path="/crm" 
+            element={
+              <AppLayout>
+                <CrmDashboard />
+              </AppLayout>
+            } 
+          />
+          <Route 
+            path="/crm/reminders" 
+            element={
+              <AppLayout>
+                <RemindersConfig />
               </AppLayout>
             } 
           />

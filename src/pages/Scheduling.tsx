@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { CalendarClock, Search, Plus } from "lucide-react";
+import { CalendarClock, Search, Plus, Settings } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Scheduling() {
   const [date, setDate] = useState<Date | undefined>(new Date());
@@ -29,10 +30,18 @@ export default function Scheduling() {
     <div className="space-y-6 animate-fade-in">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <h1 className="text-2xl font-semibold text-foreground">Agendamento</h1>
-        <Button className="px-4 bg-primary hover:bg-primary/90">
-          <Plus className="w-4 h-4 mr-2" />
-          Novo Agendamento
-        </Button>
+        <div className="flex gap-2">
+          <Button className="px-4 bg-primary hover:bg-primary/90">
+            <Plus className="w-4 h-4 mr-2" />
+            Novo Agendamento
+          </Button>
+          <Button variant="outline" asChild>
+            <Link to="/scheduling/config">
+              <Settings className="w-4 h-4 mr-2" />
+              Configurações
+            </Link>
+          </Button>
+        </div>
       </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { 
   Calendar, Clock, Users, FileText, DollarSign, BookOpen, 
-  BarChart2, Home, Settings
+  BarChart2, Home, Settings, Bell, MessageSquare
 } from "lucide-react";
 
 interface SideMenuProps {
@@ -14,13 +14,23 @@ export function SideMenu({ isOpen }: SideMenuProps) {
     { name: "Dashboard", icon: <Home size={20} />, path: "/" },
     { name: "Agendamento", icon: <Calendar size={20} />, path: "/scheduling" },
     { name: "Clientes", icon: <Users size={20} />, path: "/customers" },
+    { name: "CRM", icon: <Bell size={20} />, path: "/crm" },
     { name: "Histórico", icon: <Clock size={20} />, path: "/history" },
     { name: "Finanças", icon: <DollarSign size={20} />, path: "/finances" },
     { name: "Cursos", icon: <BookOpen size={20} />, path: "/courses" },
     { name: "Relatórios", icon: <BarChart2 size={20} />, path: "/reports" },
+    { name: "Mensagens", icon: <MessageSquare size={20} />, path: "/messages" },
     { name: "Documentos", icon: <FileText size={20} />, path: "/documents" },
     { name: "Configurações", icon: <Settings size={20} />, path: "/settings" }
   ];
+
+  // Helper para verificar se o menu atual está ativo
+  const isMenuActive = (menuPath: string) => {
+    if (menuPath === "/") {
+      return window.location.pathname === "/";
+    }
+    return window.location.pathname.startsWith(menuPath);
+  };
 
   return (
     <aside 
@@ -45,7 +55,7 @@ export function SideMenu({ isOpen }: SideMenuProps) {
                 to={item.path}
                 className={`flex items-center px-3 py-2.5 rounded-md transition-all
                 hover:bg-secondary group
-                ${window.location.pathname === item.path ? "bg-secondary text-primary" : "text-muted-foreground"}`}
+                ${isMenuActive(item.path) ? "bg-secondary text-primary" : "text-muted-foreground"}`}
               >
                 <span className="text-current">{item.icon}</span>
                 {isOpen && (
