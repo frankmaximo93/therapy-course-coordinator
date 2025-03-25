@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -127,7 +126,7 @@ export default function RemindersConfig() {
                   className="min-h-[120px]"
                 />
                 <p className="text-xs text-muted-foreground">
-                  Campos disponíveis: {{nome}}, {{terapia}}, {{data}}, {{horario}}, {{terapeuta}}, {{curso}}
+                  Campos disponíveis: &#123;&#123;nome&#125;&#125;, &#123;&#123;terapia&#125;&#125;, &#123;&#123;data&#125;&#125;, &#123;&#123;horario&#125;&#125;, &#123;&#123;terapeuta&#125;&#125;, &#123;&#123;curso&#125;&#125;
                 </p>
               </div>
 
